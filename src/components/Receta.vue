@@ -1,6 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import {} from 'vue'
+import { useBebidasStore } from '../stores/bebidas'
+
+const bebidas = useBebidasStore()
+
 defineProps({
   receta: {
     type: Object
@@ -21,6 +25,7 @@ defineProps({
       <h2 class="text-2xl truncate font-extrabold">{{ receta.strDrink }}</h2>
       <button
         class="bg-orange-400 hover:bg-orange-500 mt-5 w-full p-3 font-bold text-white text-lg"
+        @click="bebidas.seleccionarBebida(receta.idDrink)"
       >
         Ver Receta
       </button>
